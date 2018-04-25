@@ -1,6 +1,7 @@
 package sentry
 
 import (
+	"encoding/json"
 	"fmt"
 	"time"
 )
@@ -21,9 +22,11 @@ type Action struct {
 }
 
 type Condition struct {
-	Id       string `json:"id"`
-	Interval string `json:"interval,omitempty"`
-	Value    string `json:"value,omitempty"`
+	Id       string      `json:"id"`
+	Interval string      `json:"interval,omitempty"`
+	Value    json.Number `json:"value,omitempty"`
+	Key      string      `json:"key,omitempty"`
+	Match    string      `json:"match,omitempty"`
 }
 
 // GetRules fetchs all rules for a given project

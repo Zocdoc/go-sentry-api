@@ -3,8 +3,6 @@ package sentry
 import (
 	"encoding/json"
 	"fmt"
-	"os"
-	"strings"
 	"testing"
 )
 
@@ -54,17 +52,11 @@ func TestRuleResource(t *testing.T) {
 		}
 		`
 
-		for _, e := range os.Environ() {
-			pair := strings.Split(e, "=")
-			fmt.Println(pair)
-		}
-
 		rule := Rule{}
 		err = json.Unmarshal([]byte(ruleStr), &rule)
 		if err != nil {
 			t.Error(err)
 		}
-
 		fmt.Printf("%+v", rule)
 
 		newRule, err := client.CreateRule(org, project, rule)
