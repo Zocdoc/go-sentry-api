@@ -74,9 +74,8 @@ func (c *Client) hasError(response *http.Response) error {
 			return err
 		}
 
-		if err := json.Unmarshal(body, &apierror); err != nil {
-			apierror.Detail = string(body)
-		}
+		json.Unmarshal(body, &apierror)
+		apierror.Detail = string(body)
 
 		return error(apierror)
 	}

@@ -41,8 +41,8 @@ type Project struct {
 	Plugins            *[]Plugin               `json:"plugins,omitempty"`
 	Team               *Team                   `json:"team,omitempty"`
 	Organization       *Organization           `json:"organization,omitempty"`
-	DigestMinDelay     *int                    `json:"digestMinDelay,omitempty"`
-	DigestMaxDelay     *int                    `json:"digestMaxDelay,omitempty"`
+	DigestsMinDelay    *int                    `json:"digestsMinDelay,omitempty"`
+	DigestsMaxDelay    *int                    `json:"digestsMaxDelay,omitempty"`
 }
 
 // CreateProject will create a new project in your org and team
