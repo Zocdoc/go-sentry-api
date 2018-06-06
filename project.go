@@ -43,6 +43,7 @@ type Project struct {
 	Organization       *Organization           `json:"organization,omitempty"`
 	DigestsMinDelay    *int                    `json:"digestsMinDelay,omitempty"`
 	DigestsMaxDelay    *int                    `json:"digestsMaxDelay,omitempty"`
+	ResolveAge         *int                    `json:"resolveAge,omitempty"`
 }
 
 // CreateProject will create a new project in your org and team
