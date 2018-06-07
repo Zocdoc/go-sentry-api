@@ -29,6 +29,16 @@ func TestProjectFilters(t *testing.T) {
 		if err != nil {
 			t.Error(err)
 		}
+
+		subFilter := SubFilter{
+			Id:         "legacy-browsers",
+			SubFilters: []string{"ie_pre_9", "android_pre_4", "ie10", "opera_pre_15", "safari_pre_6", "ie9"},
+		}
+
+		err = client.UpdateSubFilter(org, project, subFilter)
+		if err != nil {
+			t.Error(err)
+		}
 	})
 
 	if err := client.DeleteTeam(org, team); err != nil {
