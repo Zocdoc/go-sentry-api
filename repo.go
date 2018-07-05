@@ -6,12 +6,13 @@ import (
 )
 
 type Repo struct {
-	Id          string        `json:"id,omitempty"`
-	Status      string        `json:"status,omitempty"`
-	Name        string        `json:"name,omitempty"`
-	Url         string        `json:"url,omitempty"`
-	Provider    *RepoProvider `json:"provider,omitempty"`
-	DateCreated *time.Time    `json:"dateCreated,omitempty"`
+	Id             string        `json:"id,omitempty"`
+	Status         string        `json:"status,omitempty"`
+	Name           string        `json:"name,omitempty"`
+	Url            string        `json:"url,omitempty"`
+	Provider       *RepoProvider `json:"provider,omitempty"`
+	ProviderString string        `json:"provider,omitempty"`
+	DateCreated    *time.Time    `json:"dateCreated,omitempty"`
 }
 
 type RepoProvider struct {
