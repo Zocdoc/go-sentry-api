@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	// OrgEndpointName is set to roganizations
+	// OrgEndpointName is set to organizations
 	OrgEndpointName = "organizations"
 )
 
