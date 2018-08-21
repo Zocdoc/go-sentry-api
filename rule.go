@@ -17,8 +17,10 @@ type Rule struct {
 }
 
 type Action struct {
-	Id      string `json:"id"`
-	Service string `json:"service,omitempty"`
+	Id        string `json:"id"`
+	Service   string `json:"service,omitempty"`
+	Workspace string `json:"workspace,omitempty"`
+	Channel   string `json:"channel,omitempty"`
 }
 
 type Condition struct {
