@@ -32,6 +32,20 @@ func (c *Client) CreateRepo(o Organization, repo NewRepo) (Repo, error) {
 
 func (c *Client) GetRepos(o Organization) ([]Repo, error) {
 	repos := make([]Repo, 0)
-	err := c.do("GET", fmt.Sprintf("organizations/%s/repos", *o.Slug), &repos, nil)
-	return repos, err
+	link, err := c.rawWithPagination("GET", fmt.Sprintf("organizations/%s/repos/", *o.Slug), &repos, nil)
+	if err != nil {
+		return repos, err
+	}
+
+	// Keep fetching while there are more pages
+	for link != nil && link.Next.Results {
+		var nextRepos []Repo
+		link, err = c.GetPage(link.Next, &nextRepos)
+		if err != nil {
+			return repos, err
+		}
+		repos = append(repos, nextRepos...)
+	}
+
+	return repos, nil
 }
